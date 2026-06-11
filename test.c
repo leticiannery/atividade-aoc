@@ -19,10 +19,6 @@ int main() {
 
     clock_t fim = clock();
     double tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
-
-    printf("Desafio concluído.\n");
-    printf("Soma simulada: %lld\n", soma);
-    printf("Tempo de execução: %.4f segundos\n", tempo_gasto);
     
     return 0;
 }
