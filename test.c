@@ -1,17 +1,13 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h> 
+#include <time.h>
 
-#define LINHAS 16384
-#define COLUNAS 16384
+#define LINHAS 4096
+#define COLUNAS 4096
+
+int matriz[LINHAS][COLUNAS];
 
 int main() {
     clock_t inicio = clock();
-
-    int **matriz = (int **)malloc(LINHAS * sizeof(int *));
-    for (int i = 0; i < LINHAS; i++) {
-        matriz[i] = (int *)malloc(COLUNAS * sizeof(int));
-    }
 
     volatile long long soma = 0; 
 
@@ -20,11 +16,6 @@ int main() {
             soma += matriz[r][c]; 
         }
     }
-
-    for (int i = 0; i < LINHAS; i++) {
-        free(matriz[i]);
-    }
-    free(matriz);
 
     clock_t fim = clock();
     double tempo_gasto = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
